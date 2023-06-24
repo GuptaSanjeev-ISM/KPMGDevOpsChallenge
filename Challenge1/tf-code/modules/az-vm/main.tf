@@ -1,3 +1,5 @@
+# ref link =https://github.com/Azure/terraform-azurerm-compute
+#Azure Generic VM Module
 resource "random_id" "vm_sa" {
   byte_length = 6
   keepers = {
