@@ -69,7 +69,6 @@ resource "azurerm_subnet_network_security_group_association" "vnet" {
   count                     = length(var.subnet_names)
   subnet_id                 = azurerm_subnet.subnet[count.index].id
   network_security_group_id = azurerm_network_security_group.nsg[count.index].id
-  depends_on                = ["azurerm_network_security_rule.appgw_nsg_rule_1", "azurerm_network_security_rule.appgw_nsg_rule_2", "azurerm_network_security_rule.appgw_nsg_rule_3 "]
 }
 
 resource "azurerm_subnet_route_table_association" "vnet" {
