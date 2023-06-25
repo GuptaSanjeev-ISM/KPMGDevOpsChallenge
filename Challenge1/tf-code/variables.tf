@@ -24,3 +24,29 @@ variable "environment" {
   description = "This variable defines the Environment"
   #default = "dev"
 }
+
+variable "admin_password" {
+  type      = string
+  default   = null
+  sensitive = true
+}
+
+variable "admin_username" {
+  type    = string
+  default = "azureuser"
+}
+
+
+variable "vm_os_simple_1" {
+  type    = string
+  default = "UbuntuServer"
+}
+
+variable "vm_os_simple_2" {
+  type    = string
+  default = "Debian"
+}
+
+variable "vm" {
+type = any
+}
