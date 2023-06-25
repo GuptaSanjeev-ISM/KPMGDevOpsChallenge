@@ -1,9 +1,9 @@
 ##data/locals
 locals {
-  snet_names     = ["snet-${var.app_name}-${var.app_env}-client", "snet-${var.app_name}-${var.app_env}-backend", "snet-${var.app_name}-${var.app_env}-database"]
-  nsg_names      = ["nsg-${var.app_name}-${var.app_env}-client", "nsg-${var.app_name}-${var.app_env}-backend", "nsg-${var.app_name}-${var.app_env}-database"]
-  vnet_name      = "vnet-${var.app_name}-${var.app_env}-${var.region_code}"
-  snet_ranges    = cidrsubnets(element(var.cidr_space, 0), 6, 8, 8, 8)
+  snet_names  = ["snet-${var.app_name}-${var.app_env}-client", "snet-${var.app_name}-${var.app_env}-backend", "snet-${var.app_name}-${var.app_env}-database"]
+  nsg_names   = ["nsg-${var.app_name}-${var.app_env}-client", "nsg-${var.app_name}-${var.app_env}-backend", "nsg-${var.app_name}-${var.app_env}-database"]
+  vnet_name   = "vnet-${var.app_name}-${var.app_env}-${var.region_code}"
+  snet_ranges = cidrsubnets(element(var.cidr_space, 0), 6, 8, 8, 8)
 }
 ##variables
 variable "cidr_space" {

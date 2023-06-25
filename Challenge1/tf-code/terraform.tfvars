@@ -26,29 +26,29 @@ kv_config = {
 }
 
 vm = {
-    "client" = {
-        size = "Standard_DS2_V2"
-        image_os = "linux"
-        os_simple = "Debian"
-        disable_password_authentication = "false"
-        os_disk = {
-            name = "client-osdisk"
-            caching = "ReadWrite"
-            storage_account_type = "Standard_LRS"
-        }
-    },
+  "client" = {
+    size                            = "Standard_DS2_V2"
+    image_os                        = "linux"
+    os_simple                       = "Debian"
+    disable_password_authentication = "false"
+    os_disk = {
+      name                 = "client-osdisk"
+      caching              = "ReadWrite"
+      storage_account_type = "Standard_LRS"
+    }
+  },
 
-    "backend" = {
-        size = "Standard_DS2_V2"
-        image_os = "linux"
-        os_simple = "Debian"
-        disable_password_authentication = "false"
-        os_disk = {
-            name = "backend-osdisk"
-            caching = "ReadWrite"
-            storage_account_type = "Standard_LRS"
-        }
-    }    
+  "backend" = {
+    size                            = "Standard_DS2_V2"
+    image_os                        = "linux"
+    os_simple                       = "Debian"
+    disable_password_authentication = "false"
+    os_disk = {
+      name                 = "backend-osdisk"
+      caching              = "ReadWrite"
+      storage_account_type = "Standard_LRS"
+    }
+  }
 }
 
 # vnet subnet cidr range
