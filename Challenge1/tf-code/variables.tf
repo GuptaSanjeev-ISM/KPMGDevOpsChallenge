@@ -48,5 +48,5 @@ variable "vm_os_simple_2" {
 }
 
 variable "vm" {
-type = any
+  type = any
 }

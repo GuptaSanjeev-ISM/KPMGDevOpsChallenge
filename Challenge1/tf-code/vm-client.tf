@@ -16,7 +16,7 @@ resource "random_password" "admin_password_client" {
 
 locals {
   admin_password_client = coalesce(var.admin_password, random_password.admin_password_client.result)
-  client_subnet_id                      = lookup(module.vnet.vnet_subnets_name_id, "snet-${var.app_name}-${var.app_env}-client")
+  client_subnet_id      = lookup(module.vnet.vnet_subnets_name_id, "snet-${var.app_name}-${var.app_env}-client")
 }
 
 resource "azurerm_key_vault_secret" "admin_password_client" {
@@ -29,16 +29,16 @@ resource "azurerm_key_vault_secret" "admin_password_client" {
 
 module "clientserver" {
   source              = "./modules/az-vm"
-  name         = "${random_id.ip_dns_client.hex}-client"
-  resource_group_name  = azurerm_resource_group.rg.name
+  name                = "${random_id.ip_dns_client.hex}-client"
+  resource_group_name = azurerm_resource_group.rg.name
   location            = var.location
   admin_username      = var.admin_username
   admin_password      = local.admin_password_client
-  image_os        = var.vm.client.image_os
-  os_disk = var.vm.client.os_disk
-  os_simple = var.vm.client.os_simple
-  size                       = var.vm.client.size
+  image_os            = var.vm.client.image_os
+  os_disk             = var.vm.client.os_disk
+  os_simple           = var.vm.client.os_simple
+  size                = var.vm.client.size
   # change to a unique name per datacenter region
-  subnet_id                   = local.client_subnet_id
+  subnet_id                       = local.client_subnet_id
   disable_password_authentication = var.vm.client.disable_password_authentication
 }
